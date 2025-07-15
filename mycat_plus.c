@@ -6,6 +6,7 @@
 // mycat_plus.c --- A version of mycat that can display line numbers
 
 // This program reads files and prints their contents to standard output.
+// If the -n option is provided, it will also print line numbers.
 #define BUF_SIZE 1024
 
 void print_file(const char *filename, int line_numbers) {
