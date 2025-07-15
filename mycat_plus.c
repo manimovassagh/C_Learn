@@ -55,6 +55,7 @@ void print_file(const char *filename, int line_numbers) {
 }
 
 // Program entry point: parses arguments and calls print_file for each file
+
 int main(int argc, char *argv[]) {
     int line_numbers = 0; // Flag for line numbering
     int start_index = 1; // Index of first file argument
