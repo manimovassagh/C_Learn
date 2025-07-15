@@ -18,7 +18,7 @@ void print_file(const char *filename, int line_numbers) {
     int fd = open(filename, O_RDONLY);
     if (fd < 0) {
         // Print error if file cannot be opened
-        write(2, "Cannot open file\n", 17);
+        dprintf(2, "Cannot open file: %s\n", filename);
         return;
     }
 
