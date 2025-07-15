@@ -22,6 +22,7 @@ void print_file(const char *filename, int line_numbers) {
         return;
     }
 
+    // Variable declarations
     // Buffer for file data
     char buffer[BUF_SIZE];
     ssize_t bytesRead;
