@@ -1,4 +1,6 @@
 #include <unistd.h>
+#include <fcntl.h>
+
 // mycat_plus: Enhanced cat utility with optional line numbering
 #include <fcntl.h>
 #include <stdlib.h>
