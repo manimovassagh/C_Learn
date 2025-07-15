@@ -74,6 +74,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Loop through each file argument and print its contents
+    // Each file is processed in order
     for (int i = start_index; i < argc; i++) {
         print_file(argv[i], line_numbers);
     }
