@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+// mycat_plus.c --- A version of mycat that can display line numbers
 
 #define BUF_SIZE 1024
 
