@@ -16,5 +16,6 @@ off_t get_file_size(const char *filename);
 int create_directory(const char *path, mode_t mode);
 int is_directory(const char *path);
 int remove_file(const char *filename);
+int rename_file(const char *oldname, const char *newname);
 
 #endif // FILE_UTILS_H

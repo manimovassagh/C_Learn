@@ -106,3 +106,12 @@ int is_directory(const char *path) {
     }
     return S_ISDIR(st.st_mode) ? 1 : 0;
 }
+
+// Renames a file, returns 0 on success, -1 on error
+int rename_file(const char *oldname, const char *newname) {
+    if (rename(oldname, newname) < 0) {
+        fprintf(stderr, "Error renaming file %s to %s: %s\n", oldname, newname, strerror(errno));
+        return -1;
+    }
+    return 0;
+}
