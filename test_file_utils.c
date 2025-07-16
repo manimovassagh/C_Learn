@@ -57,11 +57,24 @@ void test_read_write() {
     test_result("read_write", n == strlen(test_str) && strcmp(buf, test_str) == 0);
 }
 
+// Test directory creation
+void test_create_directory() {
+    const char *test_dir = "test_dir";
+    int result = create_directory(test_dir, 0755);
+    int exists = file_exists(test_dir);
+    
+    // Clean up
+    rmdir(test_dir);
+    
+    test_result("create_directory", result == 0 && exists == 1);
+}
+
 int main() {
     printf("Running file_utils tests...\n\n");
     
     test_file_exists();
     test_read_write();
+    test_create_directory();
     
     printf("\nTests completed: %d passed, %d failed\n", 
            test_passed, test_count - test_passed);
