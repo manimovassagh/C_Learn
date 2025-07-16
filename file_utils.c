@@ -115,3 +115,24 @@ int rename_file(const char *oldname, const char *newname) {
     }
     return 0;
 }
+
+// Returns permissions of a file as a string (e.g., rwxr-xr-x), buf must be at least 10 bytes
+int get_file_permissions(const char *filename, char *buf) {
+    struct stat st;
+    if (stat(filename, &st) < 0) {
+        strcpy(buf, "??????????");
+        return -1;
+    }
+    buf[0] = S_ISDIR(st.st_mode) ? 'd' : '-';
+    buf[1] = (st.st_mode & S_IRUSR) ? 'r' : '-';
+    buf[2] = (st.st_mode & S_IWUSR) ? 'w' : '-';
+    buf[3] = (st.st_mode & S_IXUSR) ? 'x' : '-';
+    buf[4] = (st.st_mode & S_IRGRP) ? 'r' : '-';
+    buf[5] = (st.st_mode & S_IWGRP) ? 'w' : '-';
+    buf[6] = (st.st_mode & S_IXGRP) ? 'x' : '-';
+    buf[7] = (st.st_mode & S_IROTH) ? 'r' : '-';
+    buf[8] = (st.st_mode & S_IWOTH) ? 'w' : '-';
+    buf[9] = (st.st_mode & S_IXOTH) ? 'x' : '-';
+    buf[10] = '\0';
+    return 0;
+}

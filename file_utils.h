@@ -17,5 +17,6 @@ int create_directory(const char *path, mode_t mode);
 int is_directory(const char *path);
 int remove_file(const char *filename);
 int rename_file(const char *oldname, const char *newname);
+int get_file_permissions(const char *filename, char *buf);
 
 #endif // FILE_UTILS_H
