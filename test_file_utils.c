@@ -117,6 +117,17 @@ void test_rename_file() {
     test_result("rename_file", renamed == 0 && exists_old == 0 && exists_new == 1);
 }
 
+// Test file permissions string
+void test_get_file_permissions() {
+    const char *test_file = "test_perm.txt";
+    FILE *fp = fopen(test_file, "w");
+    if (fp) fclose(fp);
+    char buf[11];
+    int result = get_file_permissions(test_file, buf);
+    remove(test_file);
+    test_result("get_file_permissions", result == 0 && buf[0] == '-');
+}
+
 int main() {
     printf("Running file_utils tests...\n\n");
     
@@ -126,6 +137,7 @@ int main() {
     test_is_directory();
     test_remove_file();
     test_rename_file();
+    test_get_file_permissions();
     
     printf("\nTests completed: %d passed, %d failed\n", 
            test_passed, test_count - test_passed);
