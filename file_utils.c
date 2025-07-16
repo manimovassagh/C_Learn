@@ -1,3 +1,21 @@
+// Copies contents from src_fd to dest_fd, returns bytes copied or -1 on error
+ssize_t copy_file(int src_fd, int dest_fd) {
+    char buf[1024];
+    ssize_t total = 0, n;
+    while ((n = read(src_fd, buf, sizeof(buf))) > 0) {
+        ssize_t written = write(dest_fd, buf, n);
+        if (written != n) {
+            fprintf(stderr, "Error writing during copy: %s\n", strerror(errno));
+            return -1;
+        }
+        total += n;
+    }
+    if (n < 0) {
+        fprintf(stderr, "Error reading during copy: %s\n", strerror(errno));
+        return -1;
+    }
+    return total;
+}
 // Writes up to count bytes from buf to fd, returns number of bytes written or -1 on error
 ssize_t write_file(int fd, const void *buf, size_t count) {
     ssize_t bytes = write(fd, buf, count);
