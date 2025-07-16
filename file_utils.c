@@ -1,3 +1,11 @@
+// Writes up to count bytes from buf to fd, returns number of bytes written or -1 on error
+ssize_t write_file(int fd, const void *buf, size_t count) {
+    ssize_t bytes = write(fd, buf, count);
+    if (bytes < 0) {
+        fprintf(stderr, "Error writing to fd %d: %s\n", fd, strerror(errno));
+    }
+    return bytes;
+}
 // Reads up to bufsize bytes from fd into buf, returns number of bytes read or -1 on error
 ssize_t read_file(int fd, void *buf, size_t bufsize) {
     ssize_t bytes = read(fd, buf, bufsize);
@@ -14,6 +22,8 @@ int close_file(int fd) {
     }
     return 0;
 }
+// file_utils.c - Utility functions for file operations
+
 // file_utils.c - Utility functions for file operations
 
 #include <stdio.h>
