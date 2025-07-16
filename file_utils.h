@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <math.h>
 
 int open_file(const char *filename);
 int close_file(int fd);
@@ -18,5 +19,6 @@ int is_directory(const char *path);
 int remove_file(const char *filename);
 int rename_file(const char *oldname, const char *newname);
 int get_file_permissions(const char *filename, char *buf);
+int human_readable_size(off_t size, char *buf);
 
 #endif // FILE_UTILS_H

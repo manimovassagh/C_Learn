@@ -6,6 +6,7 @@
 #include <string.h>
 #include <errno.h>
 #include <sys/stat.h>
+#include <math.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -28,6 +29,19 @@ off_t get_file_size(const char *filename) {
     off_t size = lseek(fd, 0, SEEK_END);
     close(fd);
     return size;
+}
+
+// Converts file size to human-readable string (buf must be at least 8 bytes)
+int human_readable_size(off_t size, char *buf) {
+    const char *units[] = {"B", "K", "M", "G", "T"};
+    int i = 0;
+    double s = (double)size;
+    while (s >= 1024 && i < 4) {
+        s /= 1024;
+        i++;
+    }
+    snprintf(buf, 8, "%.1f%s", s, units[i]);
+    return 0;
 }
 
 // Copies contents from src_fd to dest_fd, returns bytes copied or -1 on error
