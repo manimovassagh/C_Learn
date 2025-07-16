@@ -1,3 +1,11 @@
+// Returns the size of a file in bytes, or -1 on error
+off_t get_file_size(const char *filename) {
+    int fd = open(filename, O_RDONLY);
+    if (fd < 0) return -1;
+    off_t size = lseek(fd, 0, SEEK_END);
+    close(fd);
+    return size;
+}
 // Copies contents from src_fd to dest_fd, returns bytes copied or -1 on error
 ssize_t copy_file(int src_fd, int dest_fd) {
     char buf[1024];
