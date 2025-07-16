@@ -94,6 +94,16 @@ void test_is_directory() {
                 nonexist_result == 0);
 }
 
+// Test file removal
+void test_remove_file() {
+    const char *test_file = "test_remove.txt";
+    FILE *fp = fopen(test_file, "w");
+    if (fp) fclose(fp);
+    int removed = remove_file(test_file);
+    int exists = file_exists(test_file);
+    test_result("remove_file", removed == 0 && exists == 0);
+}
+
 int main() {
     printf("Running file_utils tests...\n\n");
     
@@ -101,6 +111,7 @@ int main() {
     test_read_write();
     test_create_directory();
     test_is_directory();
+    test_remove_file();
     
     printf("\nTests completed: %d passed, %d failed\n", 
            test_passed, test_count - test_passed);
