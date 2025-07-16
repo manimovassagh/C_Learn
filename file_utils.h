@@ -15,5 +15,6 @@ ssize_t copy_file(int src_fd, int dest_fd);
 off_t get_file_size(const char *filename);
 int create_directory(const char *path, mode_t mode);
 int is_directory(const char *path);
+int remove_file(const char *filename);
 
 #endif // FILE_UTILS_H

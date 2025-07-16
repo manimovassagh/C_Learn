@@ -93,3 +93,12 @@ int is_directory(const char *path) {
     }
     return S_ISDIR(st.st_mode) ? 1 : 0;
 }
+
+// Removes a file, returns 0 on success, -1 on error
+int remove_file(const char *filename) {
+    if (remove(filename) < 0) {
+        fprintf(stderr, "Error removing file %s: %s\n", filename, strerror(errno));
+        return -1;
+    }
+    return 0;
+}
