@@ -128,6 +128,18 @@ void test_get_file_permissions() {
     test_result("get_file_permissions", result == 0 && buf[0] == '-');
 }
 
+// Test human readable size
+void test_human_readable_size() {
+    char buf[8];
+    human_readable_size(123, buf);
+    int ok1 = strcmp(buf, "123.0B") == 0;
+    human_readable_size(2048, buf);
+    int ok2 = strcmp(buf, "2.0K") == 0;
+    human_readable_size(1048576, buf);
+    int ok3 = strcmp(buf, "1.0M") == 0;
+    test_result("human_readable_size", ok1 && ok2 && ok3);
+}
+
 int main() {
     printf("Running file_utils tests...\n\n");
     
@@ -138,6 +150,7 @@ int main() {
     test_remove_file();
     test_rename_file();
     test_get_file_permissions();
+    test_human_readable_size();
     
     printf("\nTests completed: %d passed, %d failed\n", 
            test_passed, test_count - test_passed);
