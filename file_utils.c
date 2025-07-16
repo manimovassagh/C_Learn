@@ -1,3 +1,11 @@
+// Reads up to bufsize bytes from fd into buf, returns number of bytes read or -1 on error
+ssize_t read_file(int fd, void *buf, size_t bufsize) {
+    ssize_t bytes = read(fd, buf, bufsize);
+    if (bytes < 0) {
+        fprintf(stderr, "Error reading from fd %d: %s\n", fd, strerror(errno));
+    }
+    return bytes;
+}
 // Closes a file descriptor, returns 0 on success, -1 on error
 int close_file(int fd) {
     if (close(fd) < 0) {
