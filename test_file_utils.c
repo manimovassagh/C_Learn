@@ -69,12 +69,38 @@ void test_create_directory() {
     test_result("create_directory", result == 0 && exists == 1);
 }
 
+// Test directory checking
+void test_is_directory() {
+    // Create a test directory
+    const char *test_dir = "test_dir";
+    create_directory(test_dir, 0755);
+    
+    // Create a test file
+    const char *test_file = "test.txt";
+    FILE *fp = fopen(test_file, "w");
+    if (fp) fclose(fp);
+    
+    int dir_result = is_directory(test_dir);
+    int file_result = is_directory(test_file);
+    int nonexist_result = is_directory("nonexistent");
+    
+    // Clean up
+    rmdir(test_dir);
+    remove(test_file);
+    
+    test_result("is_directory", 
+                dir_result == 1 && 
+                file_result == 0 && 
+                nonexist_result == 0);
+}
+
 int main() {
     printf("Running file_utils tests...\n\n");
     
     test_file_exists();
     test_read_write();
     test_create_directory();
+    test_is_directory();
     
     printf("\nTests completed: %d passed, %d failed\n", 
            test_passed, test_count - test_passed);
