@@ -61,6 +61,7 @@ int close_file(int fd) {
 #include <unistd.h>
 #include <string.h>
 #include <errno.h>
+#include <sys/stat.h>
 
 // Opens a file and returns its file descriptor, or -1 on error
 int open_file(const char *filename) {
@@ -69,4 +70,13 @@ int open_file(const char *filename) {
         fprintf(stderr, "Error opening file %s: %s\n", filename, strerror(errno));
     }
     return fd;
+}
+
+// Creates a directory with specified permissions, returns 0 on success, -1 on error
+int create_directory(const char *path, mode_t mode) {
+    if (mkdir(path, mode) < 0) {
+        fprintf(stderr, "Error creating directory %s: %s\n", path, strerror(errno));
+        return -1;
+    }
+    return 0;
 }
