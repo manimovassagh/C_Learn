@@ -104,6 +104,19 @@ void test_remove_file() {
     test_result("remove_file", removed == 0 && exists == 0);
 }
 
+// Test file renaming
+void test_rename_file() {
+    const char *oldname = "test_rename.txt";
+    const char *newname = "test_renamed.txt";
+    FILE *fp = fopen(oldname, "w");
+    if (fp) fclose(fp);
+    int renamed = rename_file(oldname, newname);
+    int exists_old = file_exists(oldname);
+    int exists_new = file_exists(newname);
+    remove(newname);
+    test_result("rename_file", renamed == 0 && exists_old == 0 && exists_new == 1);
+}
+
 int main() {
     printf("Running file_utils tests...\n\n");
     
@@ -112,6 +125,7 @@ int main() {
     test_create_directory();
     test_is_directory();
     test_remove_file();
+    test_rename_file();
     
     printf("\nTests completed: %d passed, %d failed\n", 
            test_passed, test_count - test_passed);
