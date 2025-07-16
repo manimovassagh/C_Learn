@@ -1,3 +1,4 @@
+int file_exists(const char *filename);
 // file_utils.h - Header for file_utils.c
 
 #ifndef FILE_UTILS_H

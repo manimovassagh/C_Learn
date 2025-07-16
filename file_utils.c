@@ -1,3 +1,7 @@
+// Returns 1 if file exists, 0 if not, -1 on error
+int file_exists(const char *filename) {
+    return access(filename, F_OK) == 0 ? 1 : 0;
+}
 // Returns the size of a file in bytes, or -1 on error
 off_t get_file_size(const char *filename) {
     int fd = open(filename, O_RDONLY);
