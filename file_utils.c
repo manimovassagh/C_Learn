@@ -80,3 +80,16 @@ int create_directory(const char *path, mode_t mode) {
     }
     return 0;
 }
+
+// Returns 1 if path is a directory, 0 if not, -1 on error
+int is_directory(const char *path) {
+    struct stat st;
+    if (stat(path, &st) < 0) {
+        if (errno != ENOENT) {
+            fprintf(stderr, "Error checking if %s is directory: %s\n", path, strerror(errno));
+            return -1;
+        }
+        return 0;
+    }
+    return S_ISDIR(st.st_mode) ? 1 : 0;
+}
