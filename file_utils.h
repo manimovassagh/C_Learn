@@ -29,5 +29,6 @@ uid_t get_file_owner(const char *filename);
 gid_t get_file_group(const char *filename);
 int truncate_file(const char *filename, off_t length);
 int change_permissions(const char *filename, mode_t mode);
+int get_link_count(const char *filename);
 
 #endif // FILE_UTILS_H

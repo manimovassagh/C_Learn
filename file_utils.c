@@ -210,3 +210,10 @@ int change_permissions(const char *filename, mode_t mode) {
     }
     return 0;
 }
+
+// Returns the number of hard links to a file, or -1 on error
+int get_link_count(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (int)st.st_nlink;
+}
