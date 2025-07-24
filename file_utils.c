@@ -201,3 +201,12 @@ int truncate_file(const char *filename, off_t length) {
     }
     return 0;
 }
+
+// Changes file permissions, returns 0 on success, -1 on error
+int change_permissions(const char *filename, mode_t mode) {
+    if (chmod(filename, mode) < 0) {
+        fprintf(stderr, "Error changing permissions for %s: %s\n", filename, strerror(errno));
+        return -1;
+    }
+    return 0;
+}
