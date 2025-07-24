@@ -217,3 +217,10 @@ int get_link_count(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (int)st.st_nlink;
 }
+
+// Returns 1 if file is a symbolic link, 0 if not, -1 on error
+int is_symlink(const char *filename) {
+    struct stat st;
+    if (lstat(filename, &st) < 0) return -1;
+    return S_ISLNK(st.st_mode) ? 1 : 0;
+}
