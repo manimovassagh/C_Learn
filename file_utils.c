@@ -185,3 +185,10 @@ uid_t get_file_owner(const char *filename) {
     if (stat(filename, &st) < 0) return (uid_t)-1;
     return st.st_uid;
 }
+
+// Returns the group ID of the file owner, or -1 on error
+gid_t get_file_group(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (gid_t)-1;
+    return st.st_gid;
+}

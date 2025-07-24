@@ -26,5 +26,6 @@ int is_writable(const char *filename);
 int is_executable(const char *filename);
 time_t get_modification_time(const char *filename);
 uid_t get_file_owner(const char *filename);
+gid_t get_file_group(const char *filename);
 
 #endif // FILE_UTILS_H
