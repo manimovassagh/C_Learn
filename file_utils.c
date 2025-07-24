@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <math.h>
 #include <time.h>
+#include <sys/types.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -176,4 +177,11 @@ time_t get_modification_time(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return (time_t)-1;
     return st.st_mtime;
+}
+
+// Returns the user ID of the file owner, or -1 on error
+uid_t get_file_owner(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (uid_t)-1;
+    return st.st_uid;
 }
