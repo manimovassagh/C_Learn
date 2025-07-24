@@ -192,3 +192,12 @@ gid_t get_file_group(const char *filename) {
     if (stat(filename, &st) < 0) return (gid_t)-1;
     return st.st_gid;
 }
+
+// Truncates a file to the given size, returns 0 on success, -1 on error
+int truncate_file(const char *filename, off_t length) {
+    if (truncate(filename, length) < 0) {
+        fprintf(stderr, "Error truncating file %s: %s\n", filename, strerror(errno));
+        return -1;
+    }
+    return 0;
+}
