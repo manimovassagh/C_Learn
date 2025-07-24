@@ -22,5 +22,6 @@ int get_file_permissions(const char *filename, char *buf);
 int human_readable_size(off_t size, char *buf);
 int is_readable(const char *filename);
 int is_writable(const char *filename);
+int is_executable(const char *filename);
 
 #endif // FILE_UTILS_H

@@ -164,3 +164,8 @@ int is_readable(const char *filename) {
 int is_writable(const char *filename) {
     return access(filename, W_OK) == 0 ? 1 : 0;
 }
+
+// Returns 1 if file is executable by current user, 0 otherwise
+int is_executable(const char *filename) {
+    return access(filename, X_OK) == 0 ? 1 : 0;
+}
