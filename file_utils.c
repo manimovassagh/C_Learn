@@ -159,3 +159,8 @@ int get_file_permissions(const char *filename, char *buf) {
 int is_readable(const char *filename) {
     return access(filename, R_OK) == 0 ? 1 : 0;
 }
+
+// Returns 1 if file is writable by current user, 0 otherwise
+int is_writable(const char *filename) {
+    return access(filename, W_OK) == 0 ? 1 : 0;
+}
