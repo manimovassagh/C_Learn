@@ -7,6 +7,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <math.h>
+#include <time.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -168,4 +169,11 @@ int is_writable(const char *filename) {
 // Returns 1 if file is executable by current user, 0 otherwise
 int is_executable(const char *filename) {
     return access(filename, X_OK) == 0 ? 1 : 0;
+}
+
+// Returns last modification time of file as time_t, or -1 on error
+time_t get_modification_time(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (time_t)-1;
+    return st.st_mtime;
 }

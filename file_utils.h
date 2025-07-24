@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <math.h>
+#include <time.h>
 
 int open_file(const char *filename);
 int close_file(int fd);
@@ -23,5 +24,6 @@ int human_readable_size(off_t size, char *buf);
 int is_readable(const char *filename);
 int is_writable(const char *filename);
 int is_executable(const char *filename);
+time_t get_modification_time(const char *filename);
 
 #endif // FILE_UTILS_H
