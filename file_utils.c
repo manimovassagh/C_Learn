@@ -9,6 +9,7 @@
 #include <math.h>
 #include <time.h>
 #include <sys/types.h>
+#include <limits.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -237,4 +238,13 @@ int is_file_empty(const char *filename) {
     off_t size = get_file_size(filename);
     if (size < 0) return -1;
     return size == 0 ? 1 : 0;
+}
+
+// Returns the absolute path of a file, or NULL on error
+char *get_absolute_path(const char *filename, char *buf, size_t buflen) {
+    if (!realpath(filename, buf)) {
+        fprintf(stderr, "Error getting absolute path for %s: %s\n", filename, strerror(errno));
+        return NULL;
+    }
+    return buf;
 }

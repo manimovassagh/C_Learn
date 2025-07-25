@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <math.h>
 #include <time.h>
+#include <limits.h>
 
 int open_file(const char *filename);
 int close_file(int fd);
@@ -33,5 +34,6 @@ int change_permissions(const char *filename, mode_t mode);
 int get_link_count(const char *filename);
 int is_symlink(const char *filename);
 int is_file_empty(const char *filename);
+char *get_absolute_path(const char *filename, char *buf, size_t buflen);
 
 #endif // FILE_UTILS_H
