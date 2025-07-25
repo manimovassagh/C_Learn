@@ -248,3 +248,8 @@ char *get_absolute_path(const char *filename, char *buf, size_t buflen) {
     }
     return buf;
 }
+
+// Returns 1 if file exists and is not empty, 0 otherwise
+int file_exists_and_not_empty(const char *filename) {
+    return file_exists(filename) && !is_file_empty(filename);
+}
