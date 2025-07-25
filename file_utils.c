@@ -33,6 +33,13 @@ off_t get_file_size(const char *filename) {
     return size;
 }
 
+// Returns the file size in kilobytes, or -1 on error
+long get_file_size_kb(const char *filename) {
+    off_t size = get_file_size(filename);
+    if (size < 0) return -1;
+    return (long)(size / 1024);
+}
+
 // Converts file size to human-readable string (buf must be at least 8 bytes)
 int human_readable_size(off_t size, char *buf) {
     const char *units[] = {"B", "K", "M", "G", "T"};
