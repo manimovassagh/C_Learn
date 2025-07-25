@@ -10,6 +10,7 @@
 #include <time.h>
 #include <sys/types.h>
 #include <limits.h>
+#include <libgen.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -252,4 +253,9 @@ char *get_absolute_path(const char *filename, char *buf, size_t buflen) {
 // Returns 1 if file exists and is not empty, 0 otherwise
 int file_exists_and_not_empty(const char *filename) {
     return file_exists(filename) && !is_file_empty(filename);
+}
+
+// Returns the basename of a file path
+const char *get_basename(const char *path) {
+    return basename((char *)path);
 }
