@@ -231,3 +231,10 @@ int is_symlink(const char *filename) {
     if (lstat(filename, &st) < 0) return -1;
     return S_ISLNK(st.st_mode) ? 1 : 0;
 }
+
+// Returns 1 if file is empty, 0 if not, -1 on error
+int is_file_empty(const char *filename) {
+    off_t size = get_file_size(filename);
+    if (size < 0) return -1;
+    return size == 0 ? 1 : 0;
+}
