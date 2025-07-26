@@ -19,4 +19,7 @@ char *str_find(const char *s, char c);
 // Finds the last occurrence of character c in string s
 char *str_rfind(const char *s, char c);
 
+// Converts a string to uppercase
+void str_to_upper(char *s);
+
 #endif // STRING_UTILS_H

@@ -1,4 +1,5 @@
 #include "string_utils.h"
+#include <ctype.h>
 
 // Returns the length of a string
 int str_length(const char *s) {
@@ -48,4 +49,12 @@ char *str_rfind(const char *s, char c) {
         s++;
     }
     return (char *)last;
+}
+
+// Converts string to uppercase in place
+void str_to_upper(char *s) {
+    while (s && *s) {
+        *s = toupper((unsigned char)*s);
+        s++;
+    }
 }
