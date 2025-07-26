@@ -58,3 +58,11 @@ void str_to_upper(char *s) {
         s++;
     }
 }
+
+// Converts string to lowercase in place
+void str_to_lower(char *s) {
+    while (s && *s) {
+        *s = tolower((unsigned char)*s);
+        s++;
+    }
+}

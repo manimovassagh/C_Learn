@@ -22,4 +22,7 @@ char *str_rfind(const char *s, char c);
 // Converts a string to uppercase
 void str_to_upper(char *s);
 
+// Converts a string to lowercase
+void str_to_lower(char *s);
+
 #endif // STRING_UTILS_H
