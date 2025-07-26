@@ -22,3 +22,11 @@ int str_compare(const char *s1, const char *s2) {
     }
     return *(unsigned char *)s1 - *(unsigned char *)s2;
 }
+
+// Concatenates src to dest, returns dest
+char *str_concat(char *dest, const char *src) {
+    char *d = dest;
+    while (*d) d++;
+    while ((*d++ = *src++));
+    return dest;
+}

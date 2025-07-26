@@ -10,4 +10,7 @@ char *str_copy(char *dest, const char *src);
 // Compares two strings
 int str_compare(const char *s1, const char *s2);
 
+// Concatenates two strings
+char *str_concat(char *dest, const char *src);
+
 #endif // STRING_UTILS_H
