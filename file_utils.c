@@ -271,3 +271,10 @@ int is_regular_file(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return S_ISREG(st.st_mode) ? 1 : 0;
 }
+
+// Returns pointer to file extension in path, or NULL if none
+const char *get_file_extension(const char *path) {
+    const char *dot = strrchr(path, '.');
+    if (!dot || dot == path) return NULL;
+    return dot + 1;
+}
