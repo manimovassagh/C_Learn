@@ -48,4 +48,6 @@ void str_chomp(char *s);
 
 char *str_pad_left(char *s, int total_len, char pad_char);
 
+char *str_pad_right(char *s, int total_len, char pad_char);
+
 #endif // STRING_UTILS_H

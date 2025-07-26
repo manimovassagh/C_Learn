@@ -144,3 +144,12 @@ char *str_pad_left(char *s, int total_len, char pad_char) {
     for (int i = 0; i < pad; i++) s[i] = pad_char;
     return s;
 }
+
+// Pads s on the right with pad_char to total_len, returns s
+char *str_pad_right(char *s, int total_len, char pad_char) {
+    int len = str_length(s);
+    if (len >= total_len) return s;
+    for (int i = len; i < total_len; i++) s[i] = pad_char;
+    s[total_len] = '\0';
+    return s;
+}
