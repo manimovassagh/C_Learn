@@ -123,3 +123,8 @@ char *str_dup(const char *s) {
     str_copy(copy, s);
     return copy;
 }
+
+// Returns 1 if s is NULL or empty, 0 otherwise
+int str_is_empty(const char *s) {
+    return !s || *s == '\0';
+}

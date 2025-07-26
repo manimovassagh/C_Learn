@@ -42,4 +42,6 @@ int str_count_char(const char *s, char c);
 
 char *str_dup(const char *s);
 
+int str_is_empty(const char *s);
+
 #endif // STRING_UTILS_H
