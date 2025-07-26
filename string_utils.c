@@ -13,3 +13,12 @@ char *str_copy(char *dest, const char *src) {
     while ((*d++ = *src++));
     return dest;
 }
+
+// Compares two strings, returns 0 if equal, <0 if s1<s2, >0 if s1>s2
+int str_compare(const char *s1, const char *s2) {
+    while (*s1 && (*s1 == *s2)) {
+        s1++;
+        s2++;
+    }
+    return *(unsigned char *)s1 - *(unsigned char *)s2;
+}
