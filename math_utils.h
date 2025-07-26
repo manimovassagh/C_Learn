@@ -3,4 +3,6 @@
 
 // Math utility function prototypes will go here
 
+int add(int a, int b);
+
 #endif // MATH_UTILS_H
