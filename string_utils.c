@@ -128,3 +128,9 @@ char *str_dup(const char *s) {
 int str_is_empty(const char *s) {
     return !s || *s == '\0';
 }
+
+// Removes trailing newline from s, if present
+void str_chomp(char *s) {
+    int len = str_length(s);
+    if (len > 0 && s[len - 1] == '\n') s[len - 1] = '\0';
+}

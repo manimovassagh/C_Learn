@@ -44,4 +44,6 @@ char *str_dup(const char *s);
 
 int str_is_empty(const char *s);
 
+void str_chomp(char *s);
+
 #endif // STRING_UTILS_H
