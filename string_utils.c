@@ -134,3 +134,13 @@ void str_chomp(char *s) {
     int len = str_length(s);
     if (len > 0 && s[len - 1] == '\n') s[len - 1] = '\0';
 }
+
+// Pads s on the left with pad_char to total_len, returns s
+char *str_pad_left(char *s, int total_len, char pad_char) {
+    int len = str_length(s);
+    if (len >= total_len) return s;
+    int pad = total_len - len;
+    for (int i = len; i >= 0; i--) s[i + pad] = s[i];
+    for (int i = 0; i < pad; i++) s[i] = pad_char;
+    return s;
+}

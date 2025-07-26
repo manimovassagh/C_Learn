@@ -46,4 +46,6 @@ int str_is_empty(const char *s);
 
 void str_chomp(char *s);
 
+char *str_pad_left(char *s, int total_len, char pad_char);
+
 #endif // STRING_UTILS_H
