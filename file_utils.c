@@ -290,3 +290,9 @@ int has_extension(const char *path, const char *ext) {
 int is_absolute_path(const char *path) {
     return path && path[0] == '/';
 }
+
+// Returns 1 if file is hidden (starts with a dot), 0 otherwise
+int is_hidden_file(const char *path) {
+    const char *base = get_basename(path);
+    return base && base[0] == '.' ? 1 : 0;
+}
