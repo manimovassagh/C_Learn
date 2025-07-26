@@ -30,3 +30,12 @@ char *str_concat(char *dest, const char *src) {
     while ((*d++ = *src++));
     return dest;
 }
+
+// Finds first occurrence of c in s, returns pointer or NULL
+char *str_find(const char *s, char c) {
+    while (*s) {
+        if (*s == c) return (char *)s;
+        s++;
+    }
+    return NULL;
+}
