@@ -34,4 +34,7 @@ int str_ends_with(const char *s, const char *suffix);
 // Reverses the given string
 void str_reverse(char *s);
 
+// Removes leading and trailing whitespace from the string
+char *str_strip(char *s);
+
 #endif // STRING_UTILS_H

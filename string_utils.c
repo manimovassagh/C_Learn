@@ -92,3 +92,14 @@ void str_reverse(char *s) {
         s[len - i - 1] = tmp;
     }
 }
+
+// Removes leading and trailing whitespace from s, returns s
+char *str_strip(char *s) {
+    char *end;
+    while (*s && isspace((unsigned char)*s)) s++;
+    if (*s == 0) return s;
+    end = s + str_length(s) - 1;
+    while (end > s && isspace((unsigned char)*end)) end--;
+    *(end + 1) = '\0';
+    return s;
+}
