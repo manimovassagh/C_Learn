@@ -9,5 +9,6 @@ int multiply(int a, int b);
 double divide(int a, int b);
 int mod(int a, int b);
 int max(int a, int b);
+int min(int a, int b);
 
 #endif // MATH_UTILS_H
