@@ -103,3 +103,13 @@ char *str_strip(char *s) {
     *(end + 1) = '\0';
     return s;
 }
+
+// Counts occurrences of c in s
+int str_count_char(const char *s, char c) {
+    int count = 0;
+    while (*s) {
+        if (*s == c) count++;
+        s++;
+    }
+    return count;
+}

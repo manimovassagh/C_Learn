@@ -37,4 +37,7 @@ void str_reverse(char *s);
 // Removes leading and trailing whitespace from the string
 char *str_strip(char *s);
 
+// Counts the number of occurrences of character c in string s
+int str_count_char(const char *s, char c);
+
 #endif // STRING_UTILS_H
