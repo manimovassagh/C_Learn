@@ -16,4 +16,7 @@ char *str_concat(char *dest, const char *src);
 // Finds the first occurrence of character c in string s
 char *str_find(const char *s, char c);
 
+// Finds the last occurrence of character c in string s
+char *str_rfind(const char *s, char c);
+
 #endif // STRING_UTILS_H

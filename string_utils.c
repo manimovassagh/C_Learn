@@ -39,3 +39,13 @@ char *str_find(const char *s, char c) {
     }
     return NULL;
 }
+
+// Finds last occurrence of c in s, returns pointer or NULL
+char *str_rfind(const char *s, char c) {
+    const char *last = NULL;
+    while (*s) {
+        if (*s == c) last = s;
+        s++;
+    }
+    return (char *)last;
+}
