@@ -50,4 +50,6 @@ char *str_pad_left(char *s, int total_len, char pad_char);
 
 char *str_pad_right(char *s, int total_len, char pad_char);
 
+char *str_repeat(char *s, char c, int n);
+
 #endif // STRING_UTILS_H

@@ -153,3 +153,10 @@ char *str_pad_right(char *s, int total_len, char pad_char) {
     s[total_len] = '\0';
     return s;
 }
+
+// Fills s with c repeated n times, null-terminated, returns s
+char *str_repeat(char *s, char c, int n) {
+    for (int i = 0; i < n; i++) s[i] = c;
+    s[n] = '\0';
+    return s;
+}
