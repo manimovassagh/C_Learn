@@ -259,3 +259,8 @@ int file_exists_and_not_empty(const char *filename) {
 const char *get_basename(const char *path) {
     return basename((char *)path);
 }
+
+// Returns the directory name of a file path
+const char *get_dirname(const char *path) {
+    return dirname((char *)path);
+}
