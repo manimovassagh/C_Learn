@@ -291,6 +291,11 @@ int is_absolute_path(const char *path) {
     return path && path[0] == '/';
 }
 
+// Returns 1 if path is relative, 0 otherwise
+int is_relative_path(const char *path) {
+    return path && path[0] != '/';
+}
+
 // Returns 1 if file is hidden (starts with a dot), 0 otherwise
 int is_hidden_file(const char *path) {
     const char *base = get_basename(path);
