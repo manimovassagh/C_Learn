@@ -49,3 +49,7 @@ int clamp(int value, int min, int max) {
     if (value > max) return max;
     return value;
 }
+
+int sign(int a) {
+    return (a > 0) - (a < 0);
+}
