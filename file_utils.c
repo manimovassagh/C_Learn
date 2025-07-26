@@ -308,3 +308,10 @@ int is_device_file(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return S_ISBLK(st.st_mode) || S_ISCHR(st.st_mode) ? 1 : 0;
 }
+
+// Returns 1 if file is a FIFO (named pipe), 0 if not, -1 on error
+int is_fifo(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return S_ISFIFO(st.st_mode) ? 1 : 0;
+}

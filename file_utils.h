@@ -46,5 +46,6 @@ int is_absolute_path(const char *path);
 int is_hidden_file(const char *path);
 int is_relative_path(const char *path);
 int is_device_file(const char *filename);
+int is_fifo(const char *filename);
 
 #endif // FILE_UTILS_H
