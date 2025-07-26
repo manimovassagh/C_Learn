@@ -39,5 +39,6 @@ char *get_absolute_path(const char *filename, char *buf, size_t buflen);
 int file_exists_and_not_empty(const char *filename);
 const char *get_basename(const char *path);
 const char *get_dirname(const char *path);
+int is_regular_file(const char *filename);
 
 #endif // FILE_UTILS_H

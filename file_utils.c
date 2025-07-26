@@ -264,3 +264,10 @@ const char *get_basename(const char *path) {
 const char *get_dirname(const char *path) {
     return dirname((char *)path);
 }
+
+// Returns 1 if file is a regular file, 0 if not, -1 on error
+int is_regular_file(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return S_ISREG(st.st_mode) ? 1 : 0;
+}
