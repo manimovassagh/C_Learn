@@ -28,4 +28,7 @@ void str_to_lower(char *s);
 // Checks if string s starts with the given prefix
 int str_starts_with(const char *s, const char *prefix);
 
+// Checks if string s ends with the given suffix
+int str_ends_with(const char *s, const char *suffix);
+
 #endif // STRING_UTILS_H

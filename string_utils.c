@@ -74,3 +74,11 @@ int str_starts_with(const char *s, const char *prefix) {
     }
     return 1;
 }
+
+// Returns 1 if s ends with suffix, 0 otherwise
+int str_ends_with(const char *s, const char *suffix) {
+    int slen = str_length(s);
+    int suflen = str_length(suffix);
+    if (suflen > slen) return 0;
+    return str_compare(s + slen - suflen, suffix) == 0;
+}
