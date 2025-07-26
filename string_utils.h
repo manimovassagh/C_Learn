@@ -25,4 +25,7 @@ void str_to_upper(char *s);
 // Converts a string to lowercase
 void str_to_lower(char *s);
 
+// Checks if string s starts with the given prefix
+int str_starts_with(const char *s, const char *prefix);
+
 #endif // STRING_UTILS_H

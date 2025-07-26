@@ -66,3 +66,11 @@ void str_to_lower(char *s) {
         s++;
     }
 }
+
+// Returns 1 if s starts with prefix, 0 otherwise
+int str_starts_with(const char *s, const char *prefix) {
+    while (*prefix) {
+        if (*s++ != *prefix++) return 0;
+    }
+    return 1;
+}
