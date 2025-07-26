@@ -31,4 +31,7 @@ int str_starts_with(const char *s, const char *prefix);
 // Checks if string s ends with the given suffix
 int str_ends_with(const char *s, const char *suffix);
 
+// Reverses the given string
+void str_reverse(char *s);
+
 #endif // STRING_UTILS_H

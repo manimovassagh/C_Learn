@@ -82,3 +82,13 @@ int str_ends_with(const char *s, const char *suffix) {
     if (suflen > slen) return 0;
     return str_compare(s + slen - suflen, suffix) == 0;
 }
+
+// Reverses a string in place
+void str_reverse(char *s) {
+    int len = str_length(s);
+    for (int i = 0; i < len / 2; i++) {
+        char tmp = s[i];
+        s[i] = s[len - i - 1];
+        s[len - i - 1] = tmp;
+    }
+}
