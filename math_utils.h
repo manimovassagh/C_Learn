@@ -12,5 +12,6 @@ int max(int a, int b);
 int min(int a, int b);
 int abs_val(int a);
 int pow_int(int base, int exp);
+int clamp(int value, int min, int max);
 
 #endif // MATH_UTILS_H
