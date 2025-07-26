@@ -278,3 +278,10 @@ const char *get_file_extension(const char *path) {
     if (!dot || dot == path) return NULL;
     return dot + 1;
 }
+
+// Returns 1 if file has the given extension, 0 otherwise
+int has_extension(const char *path, const char *ext) {
+    const char *file_ext = get_file_extension(path);
+    if (!file_ext) return 0;
+    return strcmp(file_ext, ext) == 0 ? 1 : 0;
+}

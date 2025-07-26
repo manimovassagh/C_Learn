@@ -41,5 +41,6 @@ const char *get_basename(const char *path);
 const char *get_dirname(const char *path);
 int is_regular_file(const char *filename);
 const char *get_file_extension(const char *path);
+int has_extension(const char *path, const char *ext);
 
 #endif // FILE_UTILS_H
