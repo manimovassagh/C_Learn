@@ -285,3 +285,8 @@ int has_extension(const char *path, const char *ext) {
     if (!file_ext) return 0;
     return strcmp(file_ext, ext) == 0 ? 1 : 0;
 }
+
+// Returns 1 if path is absolute, 0 otherwise
+int is_absolute_path(const char *path) {
+    return path && path[0] == '/';
+}
