@@ -35,3 +35,11 @@ int min(int a, int b) {
 int abs_val(int a) {
     return a < 0 ? -a : a;
 }
+
+int pow_int(int base, int exp) {
+    int result = 1;
+    for (int i = 0; i < exp; ++i) {
+        result *= base;
+    }
+    return result;
+}
