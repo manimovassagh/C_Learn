@@ -1,5 +1,6 @@
 #include "string_utils.h"
 #include <ctype.h>
+#include <stdlib.h>
 
 // Returns the length of a string
 int str_length(const char *s) {
@@ -112,4 +113,13 @@ int str_count_char(const char *s, char c) {
         s++;
     }
     return count;
+}
+
+// Returns a malloc'd copy of s, or NULL on error
+char *str_dup(const char *s) {
+    int len = str_length(s);
+    char *copy = malloc(len + 1);
+    if (!copy) return NULL;
+    str_copy(copy, s);
+    return copy;
 }
