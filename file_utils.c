@@ -315,3 +315,10 @@ int is_fifo(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return S_ISFIFO(st.st_mode) ? 1 : 0;
 }
+
+// Returns 1 if file is a socket, 0 if not, -1 on error
+int is_socket(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return S_ISSOCK(st.st_mode) ? 1 : 0;
+}
