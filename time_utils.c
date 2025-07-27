@@ -48,3 +48,7 @@ int get_current_weekday() {
     struct tm *tm_info = localtime(&t);
     return tm_info->tm_wday;
 }
+
+long get_unix_timestamp() {
+    return (long)time(NULL);
+}

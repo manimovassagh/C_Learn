@@ -13,5 +13,6 @@ int get_current_year();
 int get_current_month();
 int get_current_day();
 int get_current_weekday();
+long get_unix_timestamp();
 
 #endif // TIME_UTILS_H
