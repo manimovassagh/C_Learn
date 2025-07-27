@@ -17,3 +17,10 @@ char *format_time(time_t t, char *buf, size_t buflen) {
 int is_leap_year(int year) {
     return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
+
+int days_in_month(int year, int month) {
+    static const int days[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    if (month < 1 || month > 12) return 0;
+    if (month == 2 && is_leap_year(year)) return 29;
+    return days[month - 1];
+}
