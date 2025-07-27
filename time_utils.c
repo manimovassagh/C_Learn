@@ -42,3 +42,9 @@ int get_current_day() {
     struct tm *tm_info = localtime(&t);
     return tm_info->tm_mday;
 }
+
+int get_current_weekday() {
+    time_t t = time(NULL);
+    struct tm *tm_info = localtime(&t);
+    return tm_info->tm_wday;
+}
