@@ -30,3 +30,9 @@ int get_current_year() {
     struct tm *tm_info = localtime(&t);
     return tm_info->tm_year + 1900;
 }
+
+int get_current_month() {
+    time_t t = time(NULL);
+    struct tm *tm_info = localtime(&t);
+    return tm_info->tm_mon + 1;
+}
