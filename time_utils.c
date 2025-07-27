@@ -24,3 +24,9 @@ int days_in_month(int year, int month) {
     if (month == 2 && is_leap_year(year)) return 29;
     return days[month - 1];
 }
+
+int get_current_year() {
+    time_t t = time(NULL);
+    struct tm *tm_info = localtime(&t);
+    return tm_info->tm_year + 1900;
+}
