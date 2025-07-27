@@ -15,3 +15,7 @@ int is_relative_path(const char *path) {
 const char *get_basename(const char *path) {
     return basename((char *)path);
 }
+
+const char *get_dirname(const char *path) {
+    return dirname((char *)path);
+}
