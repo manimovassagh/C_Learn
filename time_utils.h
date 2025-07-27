@@ -11,5 +11,6 @@ int is_leap_year(int year);
 int days_in_month(int year, int month);
 int get_current_year();
 int get_current_month();
+int get_current_day();
 
 #endif // TIME_UTILS_H

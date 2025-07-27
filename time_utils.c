@@ -36,3 +36,9 @@ int get_current_month() {
     struct tm *tm_info = localtime(&t);
     return tm_info->tm_mon + 1;
 }
+
+int get_current_day() {
+    time_t t = time(NULL);
+    struct tm *tm_info = localtime(&t);
+    return tm_info->tm_mday;
+}
