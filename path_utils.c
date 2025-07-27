@@ -6,3 +6,7 @@
 int is_absolute_path(const char *path) {
     return path && path[0] == '/';
 }
+
+int is_relative_path(const char *path) {
+    return path && path[0] != '/';
+}
