@@ -14,3 +14,7 @@ int is_digit(char c) {
 int is_alnum(char c) {
     return isalnum((unsigned char)c);
 }
+
+int is_space(char c) {
+    return isspace((unsigned char)c);
+}
