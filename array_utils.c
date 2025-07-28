@@ -9,3 +9,8 @@ int array_sum(const int *arr, int len) {
     }
     return sum;
 }
+
+double array_average(const int *arr, int len) {
+    if (len == 0) return 0.0;
+    return (double)array_sum(arr, len) / len;
+}
