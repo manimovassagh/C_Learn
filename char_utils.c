@@ -18,3 +18,7 @@ int is_alnum(char c) {
 int is_space(char c) {
     return isspace((unsigned char)c);
 }
+
+int to_upper(char c) {
+    return toupper((unsigned char)c);
+}
