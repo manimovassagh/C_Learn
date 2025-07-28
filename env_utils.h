@@ -6,5 +6,6 @@
 const char *get_env(const char *name);
 int set_env(const char *name, const char *value, int overwrite);
 int unset_env(const char *name);
+void print_env(const char *name);
 
 #endif // ENV_UTILS_H
