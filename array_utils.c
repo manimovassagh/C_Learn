@@ -32,3 +32,11 @@ int array_max(const int *arr, int len) {
     }
     return max;
 }
+
+void array_reverse(int *arr, int len) {
+    for (int i = 0; i < len / 2; ++i) {
+        int tmp = arr[i];
+        arr[i] = arr[len - 1 - i];
+        arr[len - 1 - i] = tmp;
+    }
+}
