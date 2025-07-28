@@ -10,3 +10,7 @@ int is_alpha(char c) {
 int is_digit(char c) {
     return isdigit((unsigned char)c);
 }
+
+int is_alnum(char c) {
+    return isalnum((unsigned char)c);
+}

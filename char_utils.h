@@ -5,5 +5,6 @@
 
 int is_alpha(char c);
 int is_digit(char c);
+int is_alnum(char c);
 
 #endif // CHAR_UTILS_H
