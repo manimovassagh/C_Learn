@@ -23,3 +23,12 @@ int array_min(const int *arr, int len) {
     }
     return min;
 }
+
+int array_max(const int *arr, int len) {
+    if (len == 0) return 0;
+    int max = arr[0];
+    for (int i = 1; i < len; ++i) {
+        if (arr[i] > max) max = arr[i];
+    }
+    return max;
+}
