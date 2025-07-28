@@ -4,5 +4,6 @@
 // Character utility function prototypes will go here
 
 int is_alpha(char c);
+int is_digit(char c);
 
 #endif // CHAR_UTILS_H
