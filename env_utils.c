@@ -10,3 +10,7 @@ const char *get_env(const char *name) {
 int set_env(const char *name, const char *value, int overwrite) {
     return setenv(name, value, overwrite);
 }
+
+int unset_env(const char *name) {
+    return unsetenv(name);
+}
