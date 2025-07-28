@@ -8,5 +8,6 @@ int is_digit(char c);
 int is_alnum(char c);
 int is_space(char c);
 int to_upper(char c);
+int to_lower(char c);
 
 #endif // CHAR_UTILS_H

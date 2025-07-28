@@ -22,3 +22,7 @@ int is_space(char c) {
 int to_upper(char c) {
     return toupper((unsigned char)c);
 }
+
+int to_lower(char c) {
+    return tolower((unsigned char)c);
+}
