@@ -22,3 +22,7 @@ double float_round(double x) {
 double float_floor(double x) {
     return floor(x);
 }
+
+double float_ceil(double x) {
+    return ceil(x);
+}
