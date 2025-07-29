@@ -26,3 +26,7 @@ double float_floor(double x) {
 double float_ceil(double x) {
     return ceil(x);
 }
+
+double float_pow(double base, double exp) {
+    return pow(base, exp);
+}

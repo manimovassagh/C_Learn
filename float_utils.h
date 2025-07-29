@@ -9,5 +9,6 @@ double float_max(double a, double b);
 double float_round(double x);
 double float_floor(double x);
 double float_ceil(double x);
+double float_pow(double base, double exp);
 
 #endif // FLOAT_UTILS_H
