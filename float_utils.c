@@ -18,3 +18,7 @@ double float_max(double a, double b) {
 double float_round(double x) {
     return round(x);
 }
+
+double float_floor(double x) {
+    return floor(x);
+}
