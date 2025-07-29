@@ -6,5 +6,6 @@
 double float_abs(double x);
 double float_min(double a, double b);
 double float_max(double a, double b);
+double float_round(double x);
 
 #endif // FLOAT_UTILS_H

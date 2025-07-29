@@ -1,4 +1,5 @@
 #include "float_utils.h"
+#include <math.h>
 
 // Float utility function implementations will go here
 
@@ -12,4 +13,8 @@ double float_min(double a, double b) {
 
 double float_max(double a, double b) {
     return a > b ? a : b;
+}
+
+double float_round(double x) {
+    return round(x);
 }
