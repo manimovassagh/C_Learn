@@ -394,3 +394,10 @@ time_t get_access_time(const char *filename) {
     if (stat(filename, &st) < 0) return (time_t)-1;
     return st.st_atime;
 }
+
+// Returns the file change time (ctime) as time_t, or -1 on error
+time_t get_change_time(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (time_t)-1;
+    return st.st_ctime;
+}
