@@ -387,3 +387,10 @@ const char *get_fs_type(const char *filename, char *buf, size_t buflen) {
     buf[buflen - 1] = '\0';
     return buf;
 }
+
+// Returns the file access time as time_t, or -1 on error
+time_t get_access_time(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (time_t)-1;
+    return st.st_atime;
+}
