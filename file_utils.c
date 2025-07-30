@@ -436,3 +436,10 @@ int get_raw_stat(const char *filename, struct stat *st) {
     if (stat(filename, st) < 0) return -1;
     return 0;
 }
+
+// Returns the file's statvfs structure, or -1 on error
+#include <sys/statvfs.h>
+int get_raw_statvfs(const char *filename, struct statvfs *vfs) {
+    if (statvfs(filename, vfs) < 0) return -1;
+    return 0;
+}
