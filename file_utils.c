@@ -409,3 +409,10 @@ fsid_t get_fs_id(const char *filename) {
     if (statfs(filename, &fs) < 0) return (fsid_t){-1, -1};
     return fs.f_fsid;
 }
+
+// Returns the preferred I/O alignment for a file, or -1 on error
+long get_io_alignment(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (long)st.st_blksize;
+}
