@@ -423,3 +423,10 @@ int get_protection_bits(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (int)st.st_mode & 0777;
 }
+
+// Returns the file's special mode bits (setuid, setgid, sticky), or -1 on error
+int get_special_mode_bits(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (int)(st.st_mode & (S_ISUID | S_ISGID | S_ISVTX));
+}
