@@ -401,3 +401,11 @@ time_t get_change_time(const char *filename) {
     if (stat(filename, &st) < 0) return (time_t)-1;
     return st.st_ctime;
 }
+
+// Returns the file system ID for a file, or -1 on error
+#include <sys/statfs.h>
+fsid_t get_fs_id(const char *filename) {
+    struct statfs fs;
+    if (statfs(filename, &fs) < 0) return (fsid_t){-1, -1};
+    return fs.f_fsid;
+}
