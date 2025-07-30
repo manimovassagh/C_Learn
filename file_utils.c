@@ -322,3 +322,31 @@ int is_socket(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return S_ISSOCK(st.st_mode) ? 1 : 0;
 }
+
+// Returns the inode number of a file, or -1 on error
+ino_t get_inode(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (ino_t)-1;
+    return st.st_ino;
+}
+
+// Returns the block size of a file, or -1 on error
+blksize_t get_block_size(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (blksize_t)-1;
+    return st.st_blksize;
+}
+
+// Returns the number of blocks allocated to a file, or -1 on error
+blkcnt_t get_block_count(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (blkcnt_t)-1;
+    return st.st_blocks;
+}
+
+// Returns the device ID of a file, or -1 on error
+dev_t get_device_id(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (dev_t)-1;
+    return st.st_dev;
+}
