@@ -416,3 +416,10 @@ long get_io_alignment(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
+
+// Returns the file's protection bits as an integer, or -1 on error
+int get_protection_bits(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (int)st.st_mode & 0777;
+}
