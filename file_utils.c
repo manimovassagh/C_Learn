@@ -350,3 +350,10 @@ dev_t get_device_id(const char *filename) {
     if (stat(filename, &st) < 0) return (dev_t)-1;
     return st.st_dev;
 }
+
+// Returns the optimal I/O block size for file system operations, or -1 on error
+long get_optimal_io_block_size(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (long)st.st_blksize;
+}
