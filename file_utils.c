@@ -12,6 +12,8 @@
 #include <limits.h>
 #include <libgen.h>
 #include <sys/statvfs.h>
+#include <sys/param.h>
+#include <sys/mount.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -364,4 +366,13 @@ long get_statvfs_block_size(const char *filename) {
     struct statvfs vfs;
     if (statvfs(filename, &vfs) < 0) return -1;
     return (long)vfs.f_bsize;
+}
+
+// Returns the filesystem type name for a file, or NULL on error
+const char *get_fs_type(const char *filename, char *buf, size_t buflen) {
+    struct statfs fs;
+    if (statfs(filename, &fs) < 0) return NULL;
+    strncpy(buf, fs.f_fstypename, buflen - 1);
+    buf[buflen - 1] = '\0';
+    return buf;
 }
