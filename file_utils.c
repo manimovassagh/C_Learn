@@ -430,3 +430,9 @@ int get_special_mode_bits(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (int)(st.st_mode & (S_ISUID | S_ISGID | S_ISVTX));
 }
+
+// Returns the file's raw stat structure, or -1 on error
+int get_raw_stat(const char *filename, struct stat *st) {
+    if (stat(filename, st) < 0) return -1;
+    return 0;
+}
