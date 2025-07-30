@@ -451,3 +451,10 @@ int get_raw_statfs(const char *filename, struct statfs *fs) {
     if (statfs(filename, fs) < 0) return -1;
     return 0;
 }
+
+// Returns the file's preferred I/O size for reading, or -1 on error
+long get_preferred_read_size(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (long)st.st_blksize;
+}
