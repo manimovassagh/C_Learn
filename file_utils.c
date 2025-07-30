@@ -443,3 +443,11 @@ int get_raw_statvfs(const char *filename, struct statvfs *vfs) {
     if (statvfs(filename, vfs) < 0) return -1;
     return 0;
 }
+
+// Returns the file's statfs structure, or -1 on error
+#include <sys/param.h>
+#include <sys/mount.h>
+int get_raw_statfs(const char *filename, struct statfs *fs) {
+    if (statfs(filename, fs) < 0) return -1;
+    return 0;
+}
