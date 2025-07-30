@@ -191,6 +191,17 @@ time_t get_modification_time(const char *filename) {
     return st.st_mtime;
 }
 
+// Returns the file creation time (birth time) as time_t, or -1 on error
+time_t get_creation_time(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return (time_t)-1;
+#ifdef __APPLE__
+    return st.st_birthtime;
+#else
+    return (time_t)-1;
+#endif
+}
+
 // Returns the user ID of the file owner, or -1 on error
 uid_t get_file_owner(const char *filename) {
     struct stat st;
