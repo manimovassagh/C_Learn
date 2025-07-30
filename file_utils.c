@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <limits.h>
 #include <libgen.h>
+#include <sys/statvfs.h>
 
 // File existence
 int file_exists(const char *filename) {
@@ -356,4 +357,11 @@ long get_optimal_io_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
+}
+
+// Returns the preferred block size for statvfs, or -1 on error
+long get_statvfs_block_size(const char *filename) {
+    struct statvfs vfs;
+    if (statvfs(filename, &vfs) < 0) return -1;
+    return (long)vfs.f_bsize;
 }
