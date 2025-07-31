@@ -486,3 +486,10 @@ long get_preferred_mmap_block_size(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
+
+// Returns the file's preferred block size for readahead, or -1 on error
+long get_preferred_readahead_block_size(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (long)st.st_blksize;
+}
