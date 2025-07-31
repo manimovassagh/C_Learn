@@ -474,7 +474,7 @@ long get_preferred_buffer_size(const char *filename) {
 }
 
 // Returns the file's preferred alignment for direct I/O, or -1 on error
-long get_preferred_alignment(const char *filename) {
+long get_preferred_directio_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
