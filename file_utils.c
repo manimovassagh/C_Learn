@@ -619,3 +619,10 @@ long get_preferred_config_block_size(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
+
+// Returns the file's preferred block size for lock files, or -1 on error
+long get_preferred_lock_block_size(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (long)st.st_blksize;
+}
