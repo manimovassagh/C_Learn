@@ -170,7 +170,7 @@ int get_file_permissions(const char *filename, char *buf) {
 }
 
 // Returns 1 if file is readable by current user, 0 otherwise
-int is_readable(const char *filename) {
+int is
     return access(filename, R_OK) == 0 ? 1 : 0;
 }
 
