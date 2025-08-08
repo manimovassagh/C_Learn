@@ -170,7 +170,7 @@ int get_file_permissions(const char *filename, char *buf) {
 }
 
 // Returns 1 if file is readable by current user, 0 otherwise
-int is
+int is_readable(const char *filename) {
     return access(filename, R_OK) == 0 ? 1 : 0;
 }
 
@@ -697,20 +697,6 @@ long get_preferred_database_block_size(const char *filename) {
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for cache index files, or -1 on error
-long get_preferred_cacheindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for session files, or -1 on error
-long get_preferred_session_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
 // Returns the file's preferred block size for temp index files, or -1 on error
 long get_preferred_tempindex_block_size(const char *filename) {
     struct stat st;
@@ -718,92 +704,78 @@ long get_preferred_tempindex_block_size(const char *filename) {
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp log files, or -1 on error
-long get_preferred_templog_block_size(const char *filename) {
+// Returns the file's preferred block size for temp cache index files, or -1 on error
+long get_preferred_tempcacheindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp cache files, or -1 on error
-long get_preferred_tempcache_block_size(const char *filename) {
+// Returns the file's preferred block size for temp session index files, or -1 on error
+long get_preferred_tempsessionindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp session files, or -1 on error
-long get_preferred_tempsession_block_size(const char *filename) {
+// Returns the file's preferred block size for temp backup index files, or -1 on error
+long get_preferred_tempbackupindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp backup files, or -1 on error
-long get_preferred_tempbackup_block_size(const char *filename) {
+// Returns the file's preferred block size for temp archive index files, or -1 on error
+long get_preferred_temparchiveindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp archive files, or -1 on error
-long get_preferred_temparchive_block_size(const char *filename) {
+// Returns the file's preferred block size for temp resource index files, or -1 on error
+long get_preferred_tempresourceindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp resource files, or -1 on error
-long get_preferred_tempresource_block_size(const char *filename) {
+// Returns the file's preferred block size for temp font index files, or -1 on error
+long get_preferred_tempfontindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp font files, or -1 on error
-long get_preferred_tempfont_block_size(const char *filename) {
+// Returns the file's preferred block size for temp image index files, or -1 on error
+long get_preferred_tempimageindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp image files, or -1 on error
-long get_preferred_tempimage_block_size(const char *filename) {
+// Returns the file's preferred block size for temp video index files, or -1 on error
+long get_preferred_tempvideoindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp video files, or -1 on error
-long get_preferred_tempvideo_block_size(const char *filename) {
+// Returns the file's preferred block size for temp audio index files, or -1 on error
+long get_preferred_tempaudioindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp audio files, or -1 on error
-long get_preferred_tempaudio_block_size(const char *filename) {
+// Returns the file's preferred block size for temp subtitle index files, or -1 on error
+long get_preferred_tempsubtitleindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp subtitle files, or -1 on error
-long get_preferred_tempsubtitle_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp playlist files, or -1 on error
-long get_preferred_templist_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp database files, or -1 on error
-long get_preferred_tempdatabase_block_size(const char *filename) {
+// Returns the file's preferred block size for temp playlist index files, or -1 on error
+long get_preferred_templistindex_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
