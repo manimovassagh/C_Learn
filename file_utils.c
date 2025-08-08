@@ -759,3 +759,10 @@ long get_preferred_tempcache_block_size(const char *filename) {
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
 }
+
+// Returns the file's preferred block size for temp export files, or -1 on error
+long get_preferred_tempexport_block_size(const char *filename) {
+    struct stat st;
+    if (stat(filename, &st) < 0) return -1;
+    return (long)st.st_blksize;
+}
