@@ -732,78 +732,8 @@ long get_preferred_temparchiveindex_block_size(const char *filename) {
     return (long)st.st_blksize;
 }
 
-// Returns the file's preferred block size for temp resource index files, or -1 on error
-long get_preferred_tempresourceindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp font index files, or -1 on error
-long get_preferred_tempfontindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp image index files, or -1 on error
-long get_preferred_tempimageindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp video index files, or -1 on error
-long get_preferred_tempvideoindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp audio index files, or -1 on error
-long get_preferred_tempaudioindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp subtitle index files, or -1 on error
-long get_preferred_tempsubtitleindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp playlist index files, or -1 on error
-long get_preferred_templistindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp database index files, or -1 on error
-long get_preferred_tempdatabaseindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp config index files, or -1 on error
-long get_preferred_tempconfigindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp log index files, or -1 on error
-long get_preferred_templogindex_block_size(const char *filename) {
-    struct stat st;
-    if (stat(filename, &st) < 0) return -1;
-    return (long)st.st_blksize;
-}
-
-// Returns the file's preferred block size for temp backup log files, or -1 on error
-long get_preferred_tempbackuplog_block_size(const char *filename) {
+// Returns the file's preferred block size for temp archive log files, or -1 on error
+long get_preferred_temparchivelog_block_size(const char *filename) {
     struct stat st;
     if (stat(filename, &st) < 0) return -1;
     return (long)st.st_blksize;
